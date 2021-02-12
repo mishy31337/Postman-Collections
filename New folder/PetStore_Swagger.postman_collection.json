@@ -1,0 +1,552 @@
+{
+	"info": {
+		"_postman_id": "d8a860aa-8f6a-42f0-9666-f997af8c049e",
+		"name": "PetStore_Swagger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Positive",
+			"item": [
+				{
+					"name": "Regular_tests",
+					"item": [
+						{
+							"name": "POST_Create New Post Order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body Body matches string id\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+											"});\r",
+											"\r",
+											"    pm.test(\"Body Body matches string PetId\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"petId\");\r",
+											"});\r",
+											"\r",
+											"    pm.test(\"Body Body matches string quantity\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"quantity\");\r",
+											"});\r",
+											"// pm.test(\"Body has all keys\", function () {\r",
+											"//     pm.expect(pm.response.text()).to.include(\"code\");\r",
+											"//     pm.expect(pm.response.text()).to.include(\"type\");\r",
+											"//     pm.expect(pm.response.text()).to.include(\"message\");\r",
+											"// });\r",
+											"\r",
+											"pm.test(\"Status is Placed\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"placed\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Complite is True\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"true\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"ship Date\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"2021-02-05T20:24:34\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size is less than 1000b\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 81,\r\n    \"petId\": 3,\r\n    \"quantity\": 1,\r\n    \"shipDate\": \"2021-02-05T20:24:34.509Z\",\r\n    \"status\": \"placed\",\r\n    \"complete\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/store/order",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"store",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET_Store_Order_OrderId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body has all keys\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"petId\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"quantity\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"shipDate\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"status\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"complete\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size is less than 1000b\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/store/order/81",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"store",
+										"order",
+										"81"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete_Store_Order_OrderedId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body has all keys\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"code\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"type\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"message\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size is less than 1000b\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/store/order/4",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"store",
+										"order",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "INT64_Boundary_tests",
+					"item": [
+						{
+							"name": "POST_Create New Post Order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body Body matches string id\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+											"});\r",
+											"\r",
+											"    pm.test(\"Body Body matches string PetId\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"petId\");\r",
+											"});\r",
+											"\r",
+											"    pm.test(\"Body Body matches string quantity\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"quantity\");\r",
+											"});\r",
+											"// pm.test(\"Body has all keys\", function () {\r",
+											"//     pm.expect(pm.response.text()).to.include(\"code\");\r",
+											"//     pm.expect(pm.response.text()).to.include(\"type\");\r",
+											"//     pm.expect(pm.response.text()).to.include(\"message\");\r",
+											"// });\r",
+											"\r",
+											"pm.test(\"Status is Placed\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"placed\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Complite is True\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"true\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"ship Date\", function () {\r",
+											"        pm.expect(pm.response.text()).to.include(\"2021-02-05T20:24:34\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size is less than 1000b\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 9223372036854775807,\r\n    \"petId\": 3,\r\n    \"quantity\": 1,\r\n    \"shipDate\": \"2021-02-05T20:24:34.509Z\",\r\n    \"status\": \"placed\",\r\n    \"complete\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/store/order",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"store",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET_Store_Order_OrderId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body has all keys\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"petId\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"quantity\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"shipDate\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"status\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"complete\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size is less than 1000b\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/store/order/81",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"store",
+										"order",
+										"81"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete_Store_Order_OrderedId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body has all keys\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"code\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"type\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"message\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response Size is less than 1000b\", function () {\r",
+											"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/store/order/9223372036854775807",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"store",
+										"order",
+										"9223372036854775807"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Negative",
+			"item": [
+				{
+					"name": "POST_Create New Post Order Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body Body matches string id\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"\r",
+									"    pm.test(\"Body Body matches string PetId\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"petId\");\r",
+									"});\r",
+									"\r",
+									"    pm.test(\"Body Body matches string quantity\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"quantity\");\r",
+									"});\r",
+									"// pm.test(\"Body has all keys\", function () {\r",
+									"//     pm.expect(pm.response.text()).to.include(\"code\");\r",
+									"//     pm.expect(pm.response.text()).to.include(\"type\");\r",
+									"//     pm.expect(pm.response.text()).to.include(\"message\");\r",
+									"// });\r",
+									"\r",
+									"pm.test(\"Status is Placed\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"placed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Complite is True\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ship Date\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"2021-02-05T20:24:34\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Size is less than 1000b\", function () {\r",
+									"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 9223372036854775807, #post request from Swagger works incorrect with \"int64\" max value\r\n    \"petId\": 3,\r\n    \"quantity\": 1,\r\n    \"shipDate\": \"2021-02-05T20:24:34.509Z\",\r\n    \"status\": \"placed\",\r\n    \"complete\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://petstore.swagger.io/v2/store/order",
+							"protocol": "https",
+							"host": [
+								"petstore",
+								"swagger",
+								"io"
+							],
+							"path": [
+								"v2",
+								"store",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_Store_Order_OrderId_Unexist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body has all keys\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"code\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"type\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"message\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Size is less than 1000b\", function () {\r",
+									"    pm.expect(pm.response.responseSize).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://petstore.swagger.io/v2/store/order/844",
+							"protocol": "https",
+							"host": [
+								"petstore",
+								"swagger",
+								"io"
+							],
+							"path": [
+								"v2",
+								"store",
+								"order",
+								"844"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Again_Store_Order_OrderedId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://petstore.swagger.io/v2/store/order/4",
+							"protocol": "https",
+							"host": [
+								"petstore",
+								"swagger",
+								"io"
+							],
+							"path": [
+								"v2",
+								"store",
+								"order",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
