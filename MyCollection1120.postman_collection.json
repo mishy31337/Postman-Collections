@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "0047f66d-4ed7-43ca-8f61-421815f15a22",
+		"name": "MyCollection1120",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST_Create New Postal Adress",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body has id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1sec\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "_vgmxMUnZ7EJBDpZMyBTAKVzYuFTV2wpH_E1LAfCb-Y.eyJpbnN0YW5jZUlkIjoiZjQ2Y2Q1MDItZjcyZi00NGY3LTk2MzgtNWRhMWRlYjBiNGU3IiwiYXBwRGVmSWQiOiIxNTA1Yjc3NS1lODg1LWViMWItYjY2NS0xZTQ4NWQ5YmY5MGUiLCJtZXRhU2l0ZUlkIjoiMjhiNzkzZDYtNTQyNC00MDU4LTgwNDktMDI2YTRkYjAyODJmIiwic2lnbkRhdGUiOiIyMDIxLTAyLTAxVDAzOjA5OjE4LjkwOFoiLCJ1aWQiOiI4NWRhMmUxYi1mNDU1LTRmMjUtOTY0NS1kYjYwNzgyZjA1NjYiLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImZiMWNhMzcwLWVjMjYtNGFiZi04MzZkLTAyMTQ2MTcyNDY1NiIsImJpVG9rZW4iOiJkY2RiNDZkNC1hMzBiLTA0YWYtMTY3MS01ZmNiOTMwMDljYzgiLCJzaXRlT3duZXJJZCI6ImY5MTRmMTFjLWFhYjMtNDUyNy04ZDRlLWJhYjc2MjE0M2E2MCIsImV4cGlyYXRpb25EYXRlIjoiMjAyMS0wMi0wMVQwNzowOToxOC45MDhaIiwiaGFzVXNlclJvbGUiOmZhbHNlfQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": {\r\n        \"fullName\": {\r\n            \"firstName\": \"Jason\",\r\n            \"lastName\": \"Statham2\"\r\n        },\r\n        \"company\": \"serial killah\",\r\n        \"taxInfo\": {\r\n            \"id\": null,\r\n            \"type\": null\r\n        },\r\n        \"addressLine1\": \"666 Maple Avenue East\",\r\n        \"addressLine2\": \"silver str.\",\r\n        \"street\": {\r\n            \"name\": null,\r\n            \"number\": null\r\n        },\r\n        \"city\": \"Ny\",\r\n        \"country\": \"USA\",\r\n        \"subdivision\": \"NY\",\r\n        \"zipCode\": \"22180\",\r\n        \"phoneNumber\": \"555-666-7766\",\r\n        \"location\": null\r\n    },\r\n    \"setAsDefault\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses",
+					"protocol": "https",
+					"host": [
+						"addresses",
+						"wixapps",
+						"net"
+					],
+					"path": [
+						"_api",
+						"addresses-web",
+						"v1",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_Make default Adress",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "_vgmxMUnZ7EJBDpZMyBTAKVzYuFTV2wpH_E1LAfCb-Y.eyJpbnN0YW5jZUlkIjoiZjQ2Y2Q1MDItZjcyZi00NGY3LTk2MzgtNWRhMWRlYjBiNGU3IiwiYXBwRGVmSWQiOiIxNTA1Yjc3NS1lODg1LWViMWItYjY2NS0xZTQ4NWQ5YmY5MGUiLCJtZXRhU2l0ZUlkIjoiMjhiNzkzZDYtNTQyNC00MDU4LTgwNDktMDI2YTRkYjAyODJmIiwic2lnbkRhdGUiOiIyMDIxLTAyLTAxVDAzOjA5OjE4LjkwOFoiLCJ1aWQiOiI4NWRhMmUxYi1mNDU1LTRmMjUtOTY0NS1kYjYwNzgyZjA1NjYiLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImZiMWNhMzcwLWVjMjYtNGFiZi04MzZkLTAyMTQ2MTcyNDY1NiIsImJpVG9rZW4iOiJkY2RiNDZkNC1hMzBiLTA0YWYtMTY3MS01ZmNiOTMwMDljYzgiLCJzaXRlT3duZXJJZCI6ImY5MTRmMTFjLWFhYjMtNDUyNy04ZDRlLWJhYjc2MjE0M2E2MCIsImV4cGlyYXRpb25EYXRlIjoiMjAyMS0wMi0wMVQwNzowOToxOC45MDhaIiwiaGFzVXNlclJvbGUiOmZhbHNlfQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"5c5e065e-f6ea-472e-b515-aeed2c525365\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses/default",
+					"protocol": "https",
+					"host": [
+						"addresses",
+						"wixapps",
+						"net"
+					],
+					"path": [
+						"_api",
+						"addresses-web",
+						"v1",
+						"addresses",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_Show All Adress",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "_vgmxMUnZ7EJBDpZMyBTAKVzYuFTV2wpH_E1LAfCb-Y.eyJpbnN0YW5jZUlkIjoiZjQ2Y2Q1MDItZjcyZi00NGY3LTk2MzgtNWRhMWRlYjBiNGU3IiwiYXBwRGVmSWQiOiIxNTA1Yjc3NS1lODg1LWViMWItYjY2NS0xZTQ4NWQ5YmY5MGUiLCJtZXRhU2l0ZUlkIjoiMjhiNzkzZDYtNTQyNC00MDU4LTgwNDktMDI2YTRkYjAyODJmIiwic2lnbkRhdGUiOiIyMDIxLTAyLTAxVDAzOjA5OjE4LjkwOFoiLCJ1aWQiOiI4NWRhMmUxYi1mNDU1LTRmMjUtOTY0NS1kYjYwNzgyZjA1NjYiLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImZiMWNhMzcwLWVjMjYtNGFiZi04MzZkLTAyMTQ2MTcyNDY1NiIsImJpVG9rZW4iOiJkY2RiNDZkNC1hMzBiLTA0YWYtMTY3MS01ZmNiOTMwMDljYzgiLCJzaXRlT3duZXJJZCI6ImY5MTRmMTFjLWFhYjMtNDUyNy04ZDRlLWJhYjc2MjE0M2E2MCIsImV4cGlyYXRpb25EYXRlIjoiMjAyMS0wMi0wMVQwNzowOToxOC45MDhaIiwiaGFzVXNlclJvbGUiOmZhbHNlfQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses",
+					"protocol": "https",
+					"host": [
+						"addresses",
+						"wixapps",
+						"net"
+					],
+					"path": [
+						"_api",
+						"addresses-web",
+						"v1",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH_Update Existing Adress",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "_vgmxMUnZ7EJBDpZMyBTAKVzYuFTV2wpH_E1LAfCb-Y.eyJpbnN0YW5jZUlkIjoiZjQ2Y2Q1MDItZjcyZi00NGY3LTk2MzgtNWRhMWRlYjBiNGU3IiwiYXBwRGVmSWQiOiIxNTA1Yjc3NS1lODg1LWViMWItYjY2NS0xZTQ4NWQ5YmY5MGUiLCJtZXRhU2l0ZUlkIjoiMjhiNzkzZDYtNTQyNC00MDU4LTgwNDktMDI2YTRkYjAyODJmIiwic2lnbkRhdGUiOiIyMDIxLTAyLTAxVDAzOjA5OjE4LjkwOFoiLCJ1aWQiOiI4NWRhMmUxYi1mNDU1LTRmMjUtOTY0NS1kYjYwNzgyZjA1NjYiLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImZiMWNhMzcwLWVjMjYtNGFiZi04MzZkLTAyMTQ2MTcyNDY1NiIsImJpVG9rZW4iOiJkY2RiNDZkNC1hMzBiLTA0YWYtMTY3MS01ZmNiOTMwMDljYzgiLCJzaXRlT3duZXJJZCI6ImY5MTRmMTFjLWFhYjMtNDUyNy04ZDRlLWJhYjc2MjE0M2E2MCIsImV4cGlyYXRpb25EYXRlIjoiMjAyMS0wMi0wMVQwNzowOToxOC45MDhaIiwiaGFzVXNlclJvbGUiOmZhbHNlfQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": {\r\n        \"id\": \"5c5e065e-f6ea-472e-b515-aeed2c525365\",\r\n        \"fullName\": {\r\n            \"firstName\": \"Sergey\",\r\n            \"lastName\": \"Iftodii\"\r\n        },\r\n        \"company\": \"ray of light\",\r\n        \"taxInfo\": {\r\n            \"id\": null,\r\n            \"type\": null\r\n        },\r\n        \"addressLine1\": \"320 Maple Avenue East\",\r\n        \"addressLine2\": \"rock ave 77717\",\r\n        \"street\": {\r\n            \"name\": null,\r\n            \"number\": null\r\n        },\r\n        \"city\": \"Ny\",\r\n        \"country\": \"USA\",\r\n        \"subdivision\": \"NY\",\r\n        \"zipCode\": \"22180\",\r\n        \"phoneNumber\": \"555-666-7766\",\r\n        \"location\": null\r\n    },\r\n    \"setAsDefault\": true,\r\n    \"fieldMask\": {\r\n        \"paths\": [\r\n            \"fullName.firstName\",\r\n            \"fullName.lastName\",\r\n            \"company\",\r\n            \"addressLine1\",\r\n            \"addressLine2\",\r\n            \"city\",\r\n            \"country\",\r\n            \"subdivision\",\r\n            \"zipCode\",\r\n            \"phoneNumber\",\r\n            \"setAsDefault\"\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses/23aba01b-4967-444f-b6e6-478ac9950fc6",
+					"protocol": "https",
+					"host": [
+						"addresses",
+						"wixapps",
+						"net"
+					],
+					"path": [
+						"_api",
+						"addresses-web",
+						"v1",
+						"addresses",
+						"23aba01b-4967-444f-b6e6-478ac9950fc6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_Show Updated Address",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "_vgmxMUnZ7EJBDpZMyBTAKVzYuFTV2wpH_E1LAfCb-Y.eyJpbnN0YW5jZUlkIjoiZjQ2Y2Q1MDItZjcyZi00NGY3LTk2MzgtNWRhMWRlYjBiNGU3IiwiYXBwRGVmSWQiOiIxNTA1Yjc3NS1lODg1LWViMWItYjY2NS0xZTQ4NWQ5YmY5MGUiLCJtZXRhU2l0ZUlkIjoiMjhiNzkzZDYtNTQyNC00MDU4LTgwNDktMDI2YTRkYjAyODJmIiwic2lnbkRhdGUiOiIyMDIxLTAyLTAxVDAzOjA5OjE4LjkwOFoiLCJ1aWQiOiI4NWRhMmUxYi1mNDU1LTRmMjUtOTY0NS1kYjYwNzgyZjA1NjYiLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImZiMWNhMzcwLWVjMjYtNGFiZi04MzZkLTAyMTQ2MTcyNDY1NiIsImJpVG9rZW4iOiJkY2RiNDZkNC1hMzBiLTA0YWYtMTY3MS01ZmNiOTMwMDljYzgiLCJzaXRlT3duZXJJZCI6ImY5MTRmMTFjLWFhYjMtNDUyNy04ZDRlLWJhYjc2MjE0M2E2MCIsImV4cGlyYXRpb25EYXRlIjoiMjAyMS0wMi0wMVQwNzowOToxOC45MDhaIiwiaGFzVXNlclJvbGUiOmZhbHNlfQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses/23aba01b-4967-444f-b6e6-478ac9950fc6",
+					"protocol": "https",
+					"host": [
+						"addresses",
+						"wixapps",
+						"net"
+					],
+					"path": [
+						"_api",
+						"addresses-web",
+						"v1",
+						"addresses",
+						"23aba01b-4967-444f-b6e6-478ac9950fc6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_Existing Name",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "_vgmxMUnZ7EJBDpZMyBTAKVzYuFTV2wpH_E1LAfCb-Y.eyJpbnN0YW5jZUlkIjoiZjQ2Y2Q1MDItZjcyZi00NGY3LTk2MzgtNWRhMWRlYjBiNGU3IiwiYXBwRGVmSWQiOiIxNTA1Yjc3NS1lODg1LWViMWItYjY2NS0xZTQ4NWQ5YmY5MGUiLCJtZXRhU2l0ZUlkIjoiMjhiNzkzZDYtNTQyNC00MDU4LTgwNDktMDI2YTRkYjAyODJmIiwic2lnbkRhdGUiOiIyMDIxLTAyLTAxVDAzOjA5OjE4LjkwOFoiLCJ1aWQiOiI4NWRhMmUxYi1mNDU1LTRmMjUtOTY0NS1kYjYwNzgyZjA1NjYiLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImZiMWNhMzcwLWVjMjYtNGFiZi04MzZkLTAyMTQ2MTcyNDY1NiIsImJpVG9rZW4iOiJkY2RiNDZkNC1hMzBiLTA0YWYtMTY3MS01ZmNiOTMwMDljYzgiLCJzaXRlT3duZXJJZCI6ImY5MTRmMTFjLWFhYjMtNDUyNy04ZDRlLWJhYjc2MjE0M2E2MCIsImV4cGlyYXRpb25EYXRlIjoiMjAyMS0wMi0wMVQwNzowOToxOC45MDhaIiwiaGFzVXNlclJvbGUiOmZhbHNlfQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses/2519df94-a48d-4f02-9ecd-bc190371726d",
+					"protocol": "https",
+					"host": [
+						"addresses",
+						"wixapps",
+						"net"
+					],
+					"path": [
+						"_api",
+						"addresses-web",
+						"v1",
+						"addresses",
+						"2519df94-a48d-4f02-9ecd-bc190371726d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_Show Deleted Updated",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "_vgmxMUnZ7EJBDpZMyBTAKVzYuFTV2wpH_E1LAfCb-Y.eyJpbnN0YW5jZUlkIjoiZjQ2Y2Q1MDItZjcyZi00NGY3LTk2MzgtNWRhMWRlYjBiNGU3IiwiYXBwRGVmSWQiOiIxNTA1Yjc3NS1lODg1LWViMWItYjY2NS0xZTQ4NWQ5YmY5MGUiLCJtZXRhU2l0ZUlkIjoiMjhiNzkzZDYtNTQyNC00MDU4LTgwNDktMDI2YTRkYjAyODJmIiwic2lnbkRhdGUiOiIyMDIxLTAyLTAxVDAzOjA5OjE4LjkwOFoiLCJ1aWQiOiI4NWRhMmUxYi1mNDU1LTRmMjUtOTY0NS1kYjYwNzgyZjA1NjYiLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImZiMWNhMzcwLWVjMjYtNGFiZi04MzZkLTAyMTQ2MTcyNDY1NiIsImJpVG9rZW4iOiJkY2RiNDZkNC1hMzBiLTA0YWYtMTY3MS01ZmNiOTMwMDljYzgiLCJzaXRlT3duZXJJZCI6ImY5MTRmMTFjLWFhYjMtNDUyNy04ZDRlLWJhYjc2MjE0M2E2MCIsImV4cGlyYXRpb25EYXRlIjoiMjAyMS0wMi0wMVQwNzowOToxOC45MDhaIiwiaGFzVXNlclJvbGUiOmZhbHNlfQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses/2519df94-a48d-4f02-9ecd-bc190371726d",
+					"protocol": "https",
+					"host": [
+						"addresses",
+						"wixapps",
+						"net"
+					],
+					"path": [
+						"_api",
+						"addresses-web",
+						"v1",
+						"addresses",
+						"2519df94-a48d-4f02-9ecd-bc190371726d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_Deleted",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "_vgmxMUnZ7EJBDpZMyBTAKVzYuFTV2wpH_E1LAfCb-Y.eyJpbnN0YW5jZUlkIjoiZjQ2Y2Q1MDItZjcyZi00NGY3LTk2MzgtNWRhMWRlYjBiNGU3IiwiYXBwRGVmSWQiOiIxNTA1Yjc3NS1lODg1LWViMWItYjY2NS0xZTQ4NWQ5YmY5MGUiLCJtZXRhU2l0ZUlkIjoiMjhiNzkzZDYtNTQyNC00MDU4LTgwNDktMDI2YTRkYjAyODJmIiwic2lnbkRhdGUiOiIyMDIxLTAyLTAxVDAzOjA5OjE4LjkwOFoiLCJ1aWQiOiI4NWRhMmUxYi1mNDU1LTRmMjUtOTY0NS1kYjYwNzgyZjA1NjYiLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImZiMWNhMzcwLWVjMjYtNGFiZi04MzZkLTAyMTQ2MTcyNDY1NiIsImJpVG9rZW4iOiJkY2RiNDZkNC1hMzBiLTA0YWYtMTY3MS01ZmNiOTMwMDljYzgiLCJzaXRlT3duZXJJZCI6ImY5MTRmMTFjLWFhYjMtNDUyNy04ZDRlLWJhYjc2MjE0M2E2MCIsImV4cGlyYXRpb25EYXRlIjoiMjAyMS0wMi0wMVQwNzowOToxOC45MDhaIiwiaGFzVXNlclJvbGUiOmZhbHNlfQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://addresses.wixapps.net/_api/addresses-web/v1/addresses/2519df94-a48d-4f02-9ecd-bc190371726d",
+					"protocol": "https",
+					"host": [
+						"addresses",
+						"wixapps",
+						"net"
+					],
+					"path": [
+						"_api",
+						"addresses-web",
+						"v1",
+						"addresses",
+						"2519df94-a48d-4f02-9ecd-bc190371726d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
